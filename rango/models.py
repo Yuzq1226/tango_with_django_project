@@ -33,9 +33,6 @@ class Page(models.Model):
     def __str__(self):
         return self.title
 
-class PageAdmin( admin.ModelAdmin):
-    list_display = ('title',
-                    'category', 'url')
 
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
