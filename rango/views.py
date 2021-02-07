@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
+
 def index(request):
     # Query the database for a list of ALL categories currently stored.
     # Order the categories by the number of likes in descending order.
@@ -128,6 +129,9 @@ def add_page(request, category_name_slug):
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context=context_dict)
 
+
+####
+"""
 def register(request):
     # A boolean value for telling the template
     # whether the registration was successful.
@@ -187,7 +191,8 @@ def register(request):
         context = {'user_form': user_form,
             'profile_form': profile_form,
             'registered': registered})
-
+"""
+"""
 def user_login(request):
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
@@ -228,19 +233,23 @@ def user_login(request):
         # blank dictionary object...
         return render(request, 'rango/login.html')
 
+"""
+
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html', {})
 
 # Use the login_required() decorator to ensure only those logged in can
 # access the view.
+
+"""
 @login_required
 def user_logout(request):
     # Since we know the user is logged in, we can now just log them out.
     logout(request)
     # Take the user back to the homepage.
     return redirect(reverse('rango:index'))
-
+"""
 # A helper method
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)
